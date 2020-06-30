@@ -25,6 +25,7 @@
                         @selectionchange="onSelectionChange"
                         class="fill-height"
                         ref="grid"
+                        column-drag-toolbar-feature
                 />
             </v-container>
         </v-main>
@@ -41,19 +42,17 @@
     export default {
         name: 'app',
 
-        // local components
         components: {
             Grid,
             AppForm,
         },
 
-        // function that returns data
         data () {
             return {
                 gridConfig,
                 isSelected: false,
             }
-        }, // eo function data
+        },
 
         methods: {
             onSearchType (v) {
@@ -72,7 +71,7 @@
                 this.isSelected = action === 'select'
             },
         },
-    } // eo export App
+    }
 </script>
 
 <!-- eof -->
