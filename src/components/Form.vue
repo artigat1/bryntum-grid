@@ -31,6 +31,12 @@
                 v-model="search"
         />
         <v-spacer />
+<!--        <v-btn-->
+<!--                @click="exportData"-->
+<!--                icon-->
+<!--                color="accent">-->
+<!--            <v-icon right light>mdi-cloud-download</v-icon>-->
+<!--        </v-btn>-->
         <v-btn
                 @click="addRecord"
                 class="mr-4"
@@ -72,6 +78,10 @@
 
             removeRecord () {
                 this.$emit('removerecord')
+            },
+
+            exportData () {
+                this.$emit('exportData')
             },
         },
     }

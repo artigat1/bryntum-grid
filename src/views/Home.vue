@@ -8,6 +8,7 @@
         <app-form
                 :selection="isSelected"
                 @addrecord="addRecord"
+                @exportData="exportData"
                 @removerecord="removeRecord"
                 @search="onSearchType"
                 app
@@ -16,16 +17,21 @@
             <v-container class="fill-height" fluid>
                 <grid
                         :adopt="gridConfig.adopt"
+                        :column-drag-toolbar-feature="gridConfig.dragColumns"
+                        :column-picker-feature="gridConfig.columnPicker"
                         :columnLines="gridConfig.columnLines"
                         :columns="gridConfig.columns"
                         :data="gridConfig.data"
+                        :filter-feature="gridConfig.filterColumns"
                         :minHeight="gridConfig.minHeight"
                         :searchFeature=true
                         :selectionMode="gridConfig.selectionMode"
                         @selectionchange="onSelectionChange"
                         class="fill-height"
+                        quick-find-feature
                         ref="grid"
-                        column-drag-toolbar-feature
+                        stripe-feature
+                        context-menu-feature
                 />
             </v-container>
         </v-main>
@@ -69,6 +75,10 @@
 
             onSelectionChange ({ action }) {
                 this.isSelected = action === 'select'
+            },
+
+            exportData () {
+                this.$refs.grid.gridEngine.features.PdfExport.showExportDialog()
             },
         },
     }
