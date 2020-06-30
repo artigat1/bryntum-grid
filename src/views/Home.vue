@@ -9,6 +9,8 @@
                 :selection="isSelected"
                 @addrecord="addRecord"
                 @exportData="exportData"
+                @nextResult="nextResult"
+                @prevResult="prevResult"
                 @removerecord="removeRecord"
                 @search="onSearchType"
                 app
@@ -28,10 +30,11 @@
                         :selectionMode="gridConfig.selectionMode"
                         @selectionchange="onSelectionChange"
                         class="fill-height"
+                        context-menu-feature
                         quick-find-feature
                         ref="grid"
                         stripe-feature
-                        context-menu-feature
+                        search-feature="gridConfig.search"
                 />
             </v-container>
         </v-main>
@@ -79,6 +82,16 @@
 
             exportData () {
                 this.$refs.grid.gridEngine.features.PdfExport.showExportDialog()
+            },
+
+            prevResult () {
+                // DomHelper.focusWithoutScrolling(this.$refs.grid.element)
+                this.$refs.grid.gridEngine.features.search.gotoPrevHit(false, { animate: 300 })
+            },
+
+            nextResult () {
+                // DomHelper.focusWithoutScrolling(this.$refs.grid.element)
+                this.$refs.grid.gridEngine.features.search.gotoNextHit(false, { animate: 300 })
             },
         },
     }

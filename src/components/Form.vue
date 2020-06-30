@@ -30,13 +30,25 @@
                 solo-inverted
                 v-model="search"
         />
-        <v-spacer />
 <!--        <v-btn-->
 <!--                @click="exportData"-->
 <!--                icon-->
 <!--                color="accent">-->
 <!--            <v-icon right light>mdi-cloud-download</v-icon>-->
 <!--        </v-btn>-->
+        <v-btn
+                @click="prevResult"
+                class="mr-4"
+                icon
+        > <v-icon light>mdi-arrow-up</v-icon>
+        </v-btn>
+        <v-btn
+                @click="nextResult"
+                class="mr-4"
+                icon
+        > <v-icon light>mdi-arrow-down</v-icon>
+        </v-btn>
+        <v-spacer />
         <v-btn
                 @click="addRecord"
                 class="mr-4"
@@ -82,6 +94,14 @@
 
             exportData () {
                 this.$emit('exportData')
+            },
+
+            prevResult () {
+                this.$emit('prevResult')
+            },
+
+            nextResult () {
+                this.$emit('nextResult')
             },
         },
     }

@@ -110,6 +110,7 @@ export default {
     columns: columns,
     data: DataGenerator.generateData(50),
     store,
+    search: true,
 } // eo gridConfig
 
 // eof
