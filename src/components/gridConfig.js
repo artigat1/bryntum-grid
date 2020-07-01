@@ -53,7 +53,8 @@ const columns = [
         field: 'age',
         flex: 1,
         type: 'number',
-        filterable: false,
+        filterable: true,
+        filterType: 'number',
         responsiveLevels: hideMedium,
     },
     {
