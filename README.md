@@ -1,5 +1,7 @@
 # bryntum-grid
 
+This project can be seen working at: https://bryntum-grid.web.app/
+
 ## Project setup
 ```
 npm install
